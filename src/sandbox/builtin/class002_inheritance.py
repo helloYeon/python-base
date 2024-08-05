@@ -7,7 +7,7 @@ from typing import Any
 class Smartphone(metaclass=abc.ABCMeta):
     """Smartphone Class"""
 
-    def __init__(self, brand, price) -> None:
+    def __init__(self, brand:str, price:int) -> None:
         self._brand = brand
         self._price = price
 
@@ -15,17 +15,17 @@ class Smartphone(metaclass=abc.ABCMeta):
         return f"str : {self._brand} - {self._price}"
 
     @abc.abstractmethod
-    def func1(self) -> int:
+    def func1(self) -> Any:
         """_summary_"""
         pass
 
     @property
-    def price(self) -> Any:
+    def price(self) -> int:
         """Smartphone Class"""
         return self._price
 
     @price.setter
-    def price(self, price) -> None:
+    def price(self, price:int) -> None:
         if price < 0:
             raise ValueError("Price below 0 is not possible")
         self._price = price
@@ -36,7 +36,7 @@ class Galaxy(Smartphone):
 
     test_dict = {"a": 1, "b": 2}
 
-    def __init__(self, price, country) -> None:
+    def __init__(self, price:int, country:str) -> None:
         super().__init__("Galaxy", price)
         self._country = country
 
@@ -45,16 +45,16 @@ class Galaxy(Smartphone):
             f"str : {self._brand} - {self._price} - {self._country} - {self.__class__} "
         )
 
-    def func1(self) -> dict:
+    def func1(self) -> dict[str, int]:
         """_summary_"""
         return self.test_dict
-        pass
+
 
 
 class Iphone(Smartphone):
     """_summary_"""
 
-    def __init__(self, price, country) -> None:
+    def __init__(self, price:int, country:str) -> None:
         super().__init__("IPhone", price)
         self._country = country
 
@@ -70,8 +70,8 @@ class Iphone(Smartphone):
 
 # iphone
 iphone = Iphone(5000, "america")
-# print(iphone)
+print(iphone)
 
 # galaxy
 galaxy = Galaxy(7000, "korea")
-# print(galaxy)
+print(galaxy)

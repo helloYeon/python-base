@@ -8,7 +8,7 @@ class Smartphone:
     class_smartphone_count = 0
     price_per_raise = 0.5
 
-    def __init__(self, brand, information: dict) -> None:
+    def __init__(self, brand: str, information: dict[str, str|int]) -> None:
         self._brand = brand
         self.information = information
 
@@ -48,7 +48,7 @@ class Smartphone:
         print(f"Smartphone Detail Info : {self._brand} {price}")
 
     @classmethod
-    def raise_price(cls, per):
+    def raise_price(cls, per:float):
         """_summary_"""
         if per <= 1:
             print("Please Enter 1 or More")
@@ -56,7 +56,7 @@ class Smartphone:
         cls.price_per_raise = per
         return "Succeed! price increased."
 
-    def instance_raise_price(self, per) -> "Smartphone":
+    def instance_raise_price(self, per:float) -> "Smartphone":
         """_summary_"""
         if per <= 1:
             print("Please Enter 1 or More")

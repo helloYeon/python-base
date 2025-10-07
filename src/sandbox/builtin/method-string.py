@@ -23,3 +23,8 @@ b_list = ["A", "B", "D"]
 
 
 print(a_list + b_list)
+
+
+my_list = ["apple", "banana", "apple", "orange"]
+unique = list(dict.fromkeys(my_list))
+print(unique)

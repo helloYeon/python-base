@@ -1,7 +1,5 @@
 """dictionary method"""
 
-import json
-
 q = {
     "log_level": "ERROR",
     "uuid": "d41600a4-bf46-41a9-9823-bc33efe01bb0",
@@ -66,13 +64,21 @@ q = {
     },
 }
 
+# p = q["extra"]["request_params_"]["peppol_api_id"]
+# if p is None:
+#     print("request_params is None")
+# else:
+#     print(f"request_params is{p}")
+
 
 def print_dict(prefix: str, data=None) -> None:
     """出力"""
     print("\n{}: {}".format(prefix, data))
 
 
-print_dict("A get → ", q.get("log_level"))
+print_dict("A get → ", q.get("log_level__"))
+
+print_dict("A_2 get → ", q["log_level"])
 
 print_dict(
     "B pop → %s"
